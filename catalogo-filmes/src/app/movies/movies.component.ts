@@ -11,14 +11,14 @@ export class MoviesComponent implements OnInit {
 
   movies: Array<any>;
 
-  constructor(private moviedbService: MovieDbService) { }
+  constructor(private moviesService: MovieDbService) { }
 
   ngOnInit() {
     this.getMovie();
   }
 
   getMovie() {
-    this.moviedbService.getMovie().subscribe(dados => this.movies = dados);
+    this.moviesService.getMovie().subscribe(dados => this.movies = dados);
   }
 
 }

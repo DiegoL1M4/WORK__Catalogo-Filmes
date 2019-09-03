@@ -1,0 +1,9 @@
+<div class="cor ml-3">
+    <p>Lista de Filmes</p>
+
+    <ul>
+        <li *ngFor="let movie of movies">
+            {{movie?.id}} - {{movie?.title}} - {{movie?.overview}}
+        </li>
+    </ul>
+</div>

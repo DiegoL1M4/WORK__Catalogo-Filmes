@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MoviedbService } from 'src/app/services/moviedb.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  genres: any;
+
+  constructor(private moviedbService: MoviedbService) { }
 
   ngOnInit() {
+    this.moviedbService.genres()
+    .subscribe(({genres}: any) => {
+      this.genres = genres;
+    });
   }
 
 }

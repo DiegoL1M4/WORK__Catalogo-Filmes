@@ -21,9 +21,7 @@
               data-toggle="dropdown">Categorias</a>
 
               <div class="dropdown-menu">
-                  <a href="" class="dropdown-item">Comédia</a>
-                  <a href="" class="dropdown-item">Suspense</a>
-                  <a href="" class="dropdown-item">Terror</a>
+                  <a href="" class="dropdown-item" *ngFor="let genre of genres">{{ genre.name }}</a>
               </div>
             </li>
 

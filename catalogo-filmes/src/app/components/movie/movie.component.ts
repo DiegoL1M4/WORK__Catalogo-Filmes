@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MoviedbService } from './../../services/moviedb.service';
-import { TouchSequence } from 'selenium-webdriver';
-import { pluck, tap } from 'rxjs/operators';
+import { Movie } from './../../interfaces/movie';
+import { Pesquisa } from './../../interfaces/pesquisa';
 
 @Component({
   selector: 'app-movie',
@@ -15,6 +15,8 @@ export class MovieComponent implements OnInit {
   searchs: any;
   genres: any;
   genresMovies: any;
+
+  urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(private moviedbService: MoviedbService) { }
 
@@ -36,8 +38,8 @@ export class MovieComponent implements OnInit {
     });
 
     this.moviedbService.moviesGenre('28')
-    .subscribe(({results}: any) => {
-      this.genresMovies = results;
+    .subscribe((data: Pesquisa) => {
+      this.genresMovies = data.results;
     });
 
 
@@ -56,7 +58,7 @@ export class MovieComponent implements OnInit {
       .subscribe((data: any) => {
         this.genres = data.genres;
       });
-    
+
       this.moviedbService.populars()
       .subscribe(({genres}: any) => {
         this.genres = genres;

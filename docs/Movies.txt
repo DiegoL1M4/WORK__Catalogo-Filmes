@@ -1,16 +1,11 @@
-Ação
+Populares
+https://api.themoviedb.org/3/movie/popular?api_key=1f572d4eeb91cf40b81c28fd4af4c3e4&language=pt-BR&page=1
 
+Search
+https://api.themoviedb.org/3/search/movie?api_key=1f572d4eeb91cf40b81c28fd4af4c3e4&language=pt-br&query=vingadores&page=1&include_adult=false
 
-Aventura
+Genres
+https://api.themoviedb.org/3/genre/movie/list?api_key=1f572d4eeb91cf40b81c28fd4af4c3e4&language=pt-BR
 
-
-Comédia
-404368
-
-Romance
-
-
-Terror
-424139
-345940
-406563
+Search per Genders
+https://api.themoviedb.org/3/discover/movie?api_key=1f572d4eeb91cf40b81c28fd4af4c3e4&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28

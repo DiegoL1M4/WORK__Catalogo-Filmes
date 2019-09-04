@@ -10,9 +10,13 @@
 
 
 
+        <a href="/" *ngFor="let popular of populars | slice:0:5">
+            <img src="{{ urlImage + popular?.poster_path }}" width="150px">
+        </a>
+
         <div class="card" *ngFor="let popular of populars | slice:0:5">
             <a href="/">
-                <img class="card-img display-4" src="{{ urlImage + popular?.poster_path }}" width="70px">
+                <img class="card-img" src="{{ urlImage + popular?.poster_path }}" width="70px">
             </a>
         </div>
 

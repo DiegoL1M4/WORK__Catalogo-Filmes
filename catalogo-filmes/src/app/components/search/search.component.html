@@ -1,1 +1,6 @@
-<p>search works!</p>
+<h5>Seach Component</h5>
+<ul>
+    <li *ngFor="let search of searchs">
+        {{search?.id}} - {{search?.title}} - {{search?.overview}}
+    </li>
+</ul>

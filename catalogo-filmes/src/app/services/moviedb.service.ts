@@ -13,13 +13,6 @@ export class MoviedbService {
 
   constructor(private http: HttpClient) { }
 
-
-  private urlTeste = 'https://api.themoviedb.org/3/movie/popular?api_key=1f572d4eeb91cf40b81c28fd4af4c3e4&language=pt-BR&page=1';
-  getMovie() {
-    return this.http.get<any[]>(this.urlTeste);
-  }
-
-
   populars() {
     const url = `${this.urlMovie}/movie/popular?${this.apiKey}&language=pt-br&page=1`;
     return this.http.get<any[]>(url);

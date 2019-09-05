@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
 
@@ -11,13 +12,21 @@ export class NavbarComponent implements OnInit {
 
   genres: any;
 
-  constructor(private moviedbService: MoviedbService) { }
+  constructor(private router: Router, private moviedbService: MoviedbService) { }
 
   ngOnInit() {
     this.moviedbService.genres()
     .subscribe(({genres}: any) => {
       this.genres = genres;
     });
+  }
+
+  pesquisar(query: string) {
+    this.router.navigate(['/search/' + query], {});
+  }
+
+  pesquisaReset() {
+    this.router.navigate(['/'], {});
   }
 
 }

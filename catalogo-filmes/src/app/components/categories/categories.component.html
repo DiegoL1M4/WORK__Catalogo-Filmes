@@ -1,1 +1,6 @@
-<p>categories works!</p>
+<h5>Genres Movies</h5>
+<ul>
+    <li *ngFor="let movie of genresMovies">
+        {{movie?.id}} - {{movie?.title}} - {{movie?.overview}}
+    </li>
+</ul>

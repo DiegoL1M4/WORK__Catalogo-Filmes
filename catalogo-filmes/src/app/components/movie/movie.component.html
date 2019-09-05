@@ -34,13 +34,8 @@
             </ol>
 
             <div class="carousel-inner"> <!--Inner -->
-                <div class="carousel-item active">
-                    <img src="{{ urlImage + populars[0].backdrop_path }}" class="img-fluid">
-                    <div class="carousel-caption">
-                        <h3 class="bg-dark rounded px-0">{{ populars[0].title }}</h3>
-                    </div>
-                </div>
-                <div class="carousel-item" *ngFor="let popular of populars | slice:1:5">
+                
+                <div class="carousel-item" *ngFor="let popular of populars | slice:0:5">
                     <img src="{{ urlImage + popular?.backdrop_path }}" class="img-fluid">
                     <div class="carousel-caption">
                         <h3 class="bg-dark rounded px-0">{{ popular?.title }}</h3>

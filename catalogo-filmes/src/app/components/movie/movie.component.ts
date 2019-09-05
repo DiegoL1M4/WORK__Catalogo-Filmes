@@ -38,10 +38,17 @@ export class MovieComponent implements OnInit {
     });
 
     this.moviedbService.moviesGenre('28')
+    .subscribe(({results}: any) => {
+      this.genresMovies = results;
+    });
+
+
+    /*
+    this.moviedbService.moviesGenre('28')
     .subscribe((data: Pesquisa) => {
       this.genresMovies = data.results;
     });
-
+    */
 
 
     /*
@@ -65,6 +72,10 @@ export class MovieComponent implements OnInit {
       });
 
     */
+  }
+
+  open() {
+    alert();
   }
 
 }

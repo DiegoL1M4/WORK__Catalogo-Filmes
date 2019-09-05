@@ -10,7 +10,7 @@
 
 
 
-        <a href="/" *ngFor="let popular of populars | slice:0:5">
+        <a href="" (click)="open()" *ngFor="let popular of populars | slice:0:5">
             <img src="{{ urlImage + popular?.poster_path }}" width="150px">
         </a>
 
@@ -35,13 +35,13 @@
 
             <div class="carousel-inner"> <!--Inner -->
                 <div class="carousel-item active">
-                    <img src="{{urlImage + populars[0]?.backdrop_path}}" class="img-fluid">
+                    <img src="{{ urlImage + populars[0].backdrop_path }}" class="img-fluid">
                     <div class="carousel-caption">
-                        <h3 class="bg-dark rounded px-0">{{ populars[0]?.title }}</h3>
+                        <h3 class="bg-dark rounded px-0">{{ populars[0].title }}</h3>
                     </div>
                 </div>
                 <div class="carousel-item" *ngFor="let popular of populars | slice:1:5">
-                    <img src="{{urlImage + popular?.backdrop_path}}" class="img-fluid">
+                    <img src="{{ urlImage + popular?.backdrop_path }}" class="img-fluid">
                     <div class="carousel-caption">
                         <h3 class="bg-dark rounded px-0">{{ popular?.title }}</h3>
                     </div>

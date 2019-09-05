@@ -1,33 +1,33 @@
 <header> <!-- Header -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-      <div class="container">
-        
-        <a href="#" class="navbar-brand font-weight-bold">
-              The Movies
-        </a>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <div class="container">
+      
+      <a href="#" class="navbar-brand font-weight-bold">
+        The Movies
+      </a>
 
-        <!-- Responsive Button -->
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
-              <span class="navbar-toggler-icon"></span>
-        </button>
+      <!-- Responsive Button -->
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="nav-principal">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="" class="nav-link">Home</a>
-            </li>
+      <div class="collapse navbar-collapse" id="nav-principal">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="" class="nav-link">Home</a>
+          </li>
 
-            <li class="nav-item dropdown">
-              <a href="" class="nav-link dropdown-toggle" 
-              data-toggle="dropdown">Categorias</a>
+          <li class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle" 
+            data-toggle="dropdown">Categorias</a>
 
-              <div class="dropdown-menu">
-                  <a href="" class="dropdown-item" *ngFor="let genre of genres"> {{ genre.name }} </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-
+            <div class="dropdown-menu">
+              <a href="" class="dropdown-item" *ngFor="let genre of genres"> {{ genre.name }} </a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </nav>
+
+    </div>
+  </nav>
 </header> <!-- END Header -->

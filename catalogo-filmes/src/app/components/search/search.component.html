@@ -1,6 +1,16 @@
-<h5>Seach Component</h5>
-<ul>
-    <li *ngFor="let search of searchs">
-        {{search?.id}} - {{search?.title}} - {{search?.overview}}
-    </li>
-</ul>
+
+<div class="container">
+    <h5>Resultados da Pesquisa</h5>
+    
+    <div class="card-columns">
+    
+        <div (click)="open(popular)" class="card text-white" *ngFor="let search of searchs">
+            <img class="card-img" src="{{ urlImage + search?.poster_path }}" [alt]="search?.title">
+            <div class="card-footer" style="color:black">
+                <h5> {{ search?.title }} </h5>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

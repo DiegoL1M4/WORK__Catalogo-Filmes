@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
   searchs: any;
   query: any;
 
+  urlImage = 'https://image.tmdb.org/t/p/original';
+
   constructor(private moviedbService: MoviedbService, private route: ActivatedRoute) {
     this.route.params.subscribe(res => this.query = res.query);
   }

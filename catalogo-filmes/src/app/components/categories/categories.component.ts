@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
 
@@ -11,17 +11,27 @@ import { MoviedbService } from 'src/app/services/moviedb.service';
 export class CategoriesComponent implements OnInit {
 
   genresMovies: any;
+  genre: string;
   id: any;
+  page: string;
+  items = [2, 3];
 
-  constructor(private moviedbService: MoviedbService, private route: ActivatedRoute) {
-    this.route.params.subscribe(res => this.id = res.id);
+  urlImage = 'https://image.tmdb.org/t/p/original';
+
+  constructor(private router: Router, private moviedbService: MoviedbService, private route: ActivatedRoute) {
+    this.route.params.subscribe((res) => {this.id = res.id; this.genre = res.name; this.page = res.page; });
   }
 
   ngOnInit() {
-    this.moviedbService.moviesGenre(this.id)
+    this.moviedbService.moviesGenre(this.id, this.page)
     .subscribe(({results}: any) => {
       this.genresMovies = results;
     });
+  }
+
+  pagination(item: string) {
+    this.router.navigate(['/'], {});
+    this.router.navigate(['/' + window.location.pathname + item], {});
   }
 
 }

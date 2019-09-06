@@ -1,6 +1,43 @@
-<h5>Genres Movies</h5>
-<ul>
-    <li *ngFor="let movie of genresMovies">
-        {{movie?.id}} - {{movie?.title}} - {{movie?.overview}}
-    </li>
-</ul>
+<div class="container">
+    <h3> {{ genre }} </h3>
+    
+    <div class="card-columns">
+    
+        <div (click)="open(popular)" class="card text-white" *ngFor="let movie of genresMovies">
+            <img *ngIf="movie?.poster_path != null" class="card-img" src="{{ urlImage + movie?.poster_path }}" [alt]="movie?.title">
+            <img *ngIf="movie?.poster_path == null" class="card-img" src="https://i.pinimg.com/originals/9f/14/af/9f14af13b574acc93b72adc68c0ffe69.png" [alt]="movie?.title">
+
+            <div class="card-footer" style="color:black">
+                <h5> {{ movie?.title }} </h5>
+            </div>
+        </div>
+
+    </div>
+
+    <nav>
+        <ul class="pagination pagination">
+            <li class="page-item">
+                <a href="" class="page-link">
+                    <span>&laquo;</span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+            </li>
+            
+            <li class="page-item active">
+                <a class="page-link">1</a>
+            </li>
+
+            <li class="page-item" *ngFor="let item of items">
+                <a (click)="pagination(item)" class="page-link">{{ item }}</a>
+            </li>
+    
+            <li class="page-item">
+                <a href="" class="page-link">
+                    <span>&raquo;</span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>

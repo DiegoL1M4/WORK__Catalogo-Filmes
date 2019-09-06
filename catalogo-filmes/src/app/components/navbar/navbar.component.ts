@@ -29,8 +29,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/'], {});
   }
 
-  categore(genre: any) {
-    this.router.navigate(['/categories/' + genre.id], {});
+  categore(genre: any, name: string) {
+    this.router.navigate(['/categories/' + genre.id + '/' + genre.name + '/1'], {});
   }
 
 }

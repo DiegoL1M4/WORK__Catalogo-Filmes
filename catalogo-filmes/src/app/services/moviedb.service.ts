@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { tap } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -33,9 +31,9 @@ export class MoviedbService {
     return this.http.get<any[]>(url);
   }
 
-  moviesGenre(idGenre: string) {
+  moviesGenre(idGenre: string, page: string) {
     // tslint:disable-next-line: max-line-length
-    const url = `${this.urlMovie}/discover/movie?${this.apiKey}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${idGenre}`;
+    const url = `${this.urlMovie}/discover/movie?${this.apiKey}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${idGenre}`;
     return this.http.get<any[]>(url);
   }
 

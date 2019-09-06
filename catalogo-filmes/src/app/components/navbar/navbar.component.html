@@ -1,6 +1,6 @@
 
 <header> <!-- Header -->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
       
       <a routerLink="/" class="navbar-brand font-weight-bold">
@@ -19,8 +19,18 @@
             <a  (click)="reset()" href="" class="nav-link dropdown-toggle" 
             data-toggle="dropdown">Categorias</a>
 
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" style="overflow-y: auto; height: 800%">
               <a (click)="categore(genre)" class="dropdown-item" *ngFor="let genre of genres"> {{ genre.name }} </a>
+            </div>
+          </li>
+
+          <li class="nav-item mr-3 mb-1">
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                   <button (click)="fonteAlt('+')" class="btn btn-white" type="button"> +A </button>
+                   <button (click)="fonteAlt('A')" class="btn btn-white" type="button"> A </button>
+                   <button (click)="fonteAlt('-')" class="btn btn-white" type="button"> -A </button>
+                </div>
             </div>
           </li>
 

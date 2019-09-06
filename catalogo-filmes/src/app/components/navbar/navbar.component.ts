@@ -11,6 +11,7 @@ import { MoviedbService } from 'src/app/services/moviedb.service';
 export class NavbarComponent implements OnInit {
 
   genres: any;
+  fonte: number;
 
   constructor(private router: Router, private moviedbService: MoviedbService) { }
 
@@ -31,6 +32,17 @@ export class NavbarComponent implements OnInit {
 
   categore(genre: any, name: string) {
     this.router.navigate(['/categories/' + genre.id + '/' + genre.name + '/1'], {});
+  }
+
+  fonteAlt(op: string) {
+    this.fonte = parseInt( $('*').css('font-size'), 10);
+    if (op === '+') {
+      $('*').css('fontSize', this.fonte + 1);
+    } else if (op === '-') {
+      $('*').css('fontSize', this.fonte - 1);
+    } else {
+      $('*').css('fontSize', 16);
+    }
   }
 
 }

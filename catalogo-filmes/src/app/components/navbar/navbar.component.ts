@@ -25,8 +25,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/search/' + query], {});
   }
 
-  pesquisaReset() {
+  reset() {
     this.router.navigate(['/'], {});
+  }
+
+  categore(genre: any) {
+    this.router.navigate(['/categories/' + genre.id], {});
   }
 
 }

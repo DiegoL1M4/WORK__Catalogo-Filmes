@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { MoviedbService } from './../../services/moviedb.service';
@@ -18,7 +19,7 @@ export class MovieComponent implements OnInit {
 
   urlImage = 'https://image.tmdb.org/t/p/original';
 
-  constructor(private moviedbService: MoviedbService) { }
+  constructor(private router: Router, private moviedbService: MoviedbService) { }
 
   ngOnInit() {
 
@@ -74,8 +75,8 @@ export class MovieComponent implements OnInit {
     */
   }
 
-  open() {
-    alert();
+  open(popular) {
+    this.router.navigate(['/details/' + popular.id]);
   }
 
 }

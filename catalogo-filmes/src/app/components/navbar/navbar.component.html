@@ -15,26 +15,19 @@
       <div class="collapse navbar-collapse" id="nav-principal">
         <ul class="navbar-nav ml-auto">
           
-          <li class="nav-item" routerLinkActive=”active”>
-            <a routerLink="/categories" class="nav-link"> Link </a>
-          </li>
-
-
           <li class="nav-item dropdown mr-3">
-            <a href="" class="nav-link dropdown-toggle" 
+            <a  (click)="reset()" href="" class="nav-link dropdown-toggle" 
             data-toggle="dropdown">Categorias</a>
 
             <div class="dropdown-menu">
-              <div *ngFor="let genre of genres">
-                <a routerLink="/categories/28" class="dropdown-item" > {{ genre.name }} </a>
-              </div>
+              <a (click)="categore(genre)" class="dropdown-item" *ngFor="let genre of genres"> {{ genre.name }} </a>
             </div>
           </li>
 
           <!-- Pesquisa -->
           <li class="nav-item dropdown">
             <div class="input-group">
-              <input (focus)="pesquisaReset()" class="form-control" type="text" placeholder="Pesquisar" #campoInput>
+              <input (focus)="reset()" class="form-control" type="text" placeholder="Pesquisar" #campoInput>
     
               <div class="input-group-append">
                 <button (click)="pesquisar(campoInput.value)" type="button" class="btn btn-info">

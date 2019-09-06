@@ -1,79 +1,18 @@
-<div class="cor ml-3">
-    <p>Lista de Filmes</p>
+<div class="ml-3">
+    <h2>Populares</h2>
 
-    <h5>Populars</h5>
-    <ul>
-        <div *ngFor="let popular of populars | slice:0:5">
-            <img src="{{ urlImage + popular?.poster_path }}" width="70px"/> 
-            {{popular?.id}} - {{popular?.title}} - {{popular?.overview}}
+    <div class="card-columns">
+      
+        <div (click)="open(popular)" class="card text-white" *ngFor="let popular of populars">
+            <img class="card-img" src="{{ urlImage + popular?.poster_path }}">
+            <div class="card-footer" style="color:black">
+                <h5> {{ popular?.title }} </h5>
+            </div>
         </div>
 
+    </div>
 
 
-        <a href="" (click)="open()" *ngFor="let popular of populars | slice:0:5">
-            <img src="{{ urlImage + popular?.poster_path }}" width="150px">
-        </a>
+    
 
-        <div class="card" *ngFor="let popular of populars | slice:0:5">
-            <a href="/">
-                <img class="card-img" src="{{ urlImage + popular?.poster_path }}" width="70px">
-            </a>
-        </div>
-
-
-
-        <div id="carousel-indicadores" class="carousel slide" data-ride="carousel"><!--Carousel -->
-
-            <!-- Indicadores -->
-            <ol class="carousel-indicators">
-              <li class="active" data-target="#carousel-indicadores" data-slide-to="0"></li>
-              <li data-target="#carousel-indicadores" data-slide-to="1"></li>
-              <li data-target="#carousel-indicadores" data-slide-to="2"></li>
-              <li data-target="#carousel-indicadores" data-slide-to="3"></li>
-              <li data-target="#carousel-indicadores" data-slide-to="4"></li>
-            </ol>
-
-            <div class="carousel-inner"> <!--Inner -->
-                
-                <div class="carousel-item" *ngFor="let popular of populars | slice:0:5">
-                    <img src="{{ urlImage + popular?.backdrop_path }}" class="img-fluid">
-                    <div class="carousel-caption">
-                        <h3 class="bg-dark rounded px-0">{{ popular?.title }}</h3>
-                    </div>
-                </div>
-            </div><!--/Inner -->
-
-            <!-- Controles -->
-            <a href="#carousel-indicadores" class="carousel-control-prev" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-
-            <a href="#carousel-indicadores" class="carousel-control-next" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </a>
-
-          </div><!--/Carousel -->
-          
-    </ul>
-
-    <h5>Seach</h5>
-    <ul>
-        <li *ngFor="let search of searchs">
-            {{search?.id}} - {{search?.title}} - {{search?.overview}}
-        </li>
-    </ul>
-
-    <h5>Genres</h5>
-    <ul>
-        <li *ngFor="let genre of genres">
-            {{genre?.id}} - {{genre?.name}}
-        </li>
-    </ul>
-
-    <h5>Genres Movies</h5>
-    <ul>
-        <li *ngFor="let movie of genresMovies">
-            {{movie?.id}} - {{movie?.title}} - {{movie?.overview}}
-        </li>
-    </ul>
 </div>

@@ -21,24 +21,31 @@ export class CategoriesComponent implements OnInit {
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(private router: Router, private moviedbService: MoviedbService, private route: ActivatedRoute) {
-    this.route.params.subscribe((res) => {this.id = res.id; this.genre = res.name; this.page = res.page; });
+    this.route.params.subscribe((res) => {this.id = res.id; this.page = res.page; });
     this.route.paramMap
       .subscribe((params: ParamMap) => {this.genre = params.get('name'); });
   }
 
   ngOnInit() {
-    this.moviedbService.moviesGenre(this.id, this.page).pipe(
-      tap((params: Pesquisa) => console.log(this.total = params.total_pages) )
-    )
-    .subscribe((data: Pesquisa) => {
-      console.log(data);
-
-      this.movies = data.results;
+    this.route.url.subscribe(url => {
+      this.moviedbService.moviesGenre(this.id, this.page).pipe(
+        tap((params: Pesquisa) => console.log(this.total = params.total_pages) )
+      )
+      .subscribe((data: Pesquisa) => {
+        this.movies = data.results;
+      });
     });
   }
 
   pagination(item: string) {
-    this.router.navigate(['/categories/' + this.id + '/' + item, {name: this.genre}]);
+    /*if (item === '+') {
+      this.page += 1;
+    } else if (item === '-') {
+      this.page -= 1;
+    } else {
+      this.page += 1;
+    }*/
+    this.router.navigate(['/categories/' + this.id + '/' + this.page, {name: this.genre}]);
   }
 
 }

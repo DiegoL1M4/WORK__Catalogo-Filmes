@@ -24,14 +24,15 @@ export class SearchComponent implements OnInit {
     private route$: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route$.paramMap
-      .subscribe((params: ParamMap) => {this.query = params.get('query'); });
+    this.route$.url.subscribe(url => {
+      this.route$.paramMap
+        .subscribe((params: ParamMap) => {this.query = params.get('query'); });
 
-    this.moviedbService$.search(this.query)
-    .subscribe((data: Pesquisa) => {
-      this.movies = data.results;
-    });
-
+      this.moviedbService$.search(this.query)
+      .subscribe((data: Pesquisa) => {
+        this.movies = data.results;
+      });
+     });
   }
 
 }

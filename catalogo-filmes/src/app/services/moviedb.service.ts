@@ -23,7 +23,7 @@ export class MoviedbService {
 
   search(query: string) {
     const url = `${this.urlMovie}/search/movie?${this.apiKey}&language=pt-br&query=${query}&page=1&include_adult=false`;
-    return this.http.get<any[]>(url);
+    return this.http.get<any>(url);
   }
 
   genres() {
@@ -34,7 +34,7 @@ export class MoviedbService {
   moviesGenre(idGenre: string, page: string) {
     // tslint:disable-next-line: max-line-length
     const url = `${this.urlMovie}/discover/movie?${this.apiKey}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${idGenre}`;
-    return this.http.get<any[]>(url);
+    return this.http.get<any>(url);
   }
 
 }

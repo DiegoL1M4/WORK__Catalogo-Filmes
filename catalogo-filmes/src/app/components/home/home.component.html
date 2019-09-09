@@ -12,18 +12,19 @@
         </ol>
 
         <div class="carousel-inner"> <!--Inner -->
-            <div class="carousel-item active">
-                <img src="{{ urlImage + populars[0].backdrop_path }}" class="img-fluid">
+            <div (click)="open(movies[0])" class="carousel-item active">
+                <img src="{{ urlImage + movies[0]?.backdrop_path }}" class="img-fluid">
                 <div class="carousel-caption">
-                    <h3 class="bg-dark rounded py-2">{{ populars[0].title }}</h3>
+                    <h3 class="bg-dark rounded py-2">{{ movies[0]?.title }}</h3>
                 </div>
             </div>
-            <div class="carousel-item" *ngFor="let popular of populars | slice:1:5">
-                <img src="{{ urlImage + popular?.backdrop_path }}" class="img-fluid">
+            <div  (click)="open(movie)" class="carousel-item" *ngFor="let movie of movies | slice:1:5">
+                <img src="{{ urlImage + movie?.backdrop_path }}" class="img-fluid">
                 <div class="carousel-caption">
-                    <h3 class="bg-dark rounded py-2">{{ popular?.title }}</h3>
+                    <h3 class="bg-dark rounded py-2">{{ movie?.title }}</h3>
                 </div>
             </div>
+
         </div> <!--/Inner -->
 
         <!-- Controles -->
@@ -41,15 +42,6 @@
     
     <h3>Populares</h3>
     
-    <div class="card-columns">
-    
-        <div (click)="open(popular)" class="card text-white" *ngFor="let popular of populars">
-            <img class="card-img" src="{{ urlImage + popular?.poster_path }}" [alt]="popular?.title">
-            <div class="card-footer" style="color:black">
-                <h5> {{ popular?.title }} </h5>
-            </div>
-        </div>
-
-    </div>
+    <app-movie [movies]="movies"></app-movie>
 
 </div>

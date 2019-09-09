@@ -1,18 +1,7 @@
 <div class="container">
     <h3> {{ genre }} </h3>
     
-    <div class="card-columns">
-    
-        <div (click)="open(popular)" class="card text-white" *ngFor="let movie of genresMovies">
-            <img *ngIf="movie?.poster_path != null" class="card-img" src="{{ urlImage + movie?.poster_path }}" [alt]="movie?.title">
-            <img *ngIf="movie?.poster_path == null" class="card-img" src="https://i.pinimg.com/originals/9f/14/af/9f14af13b574acc93b72adc68c0ffe69.png" [alt]="movie?.title">
-
-            <div class="card-footer" style="color:black">
-                <h5> {{ movie?.title }} </h5>
-            </div>
-        </div>
-
-    </div>
+    <app-movie [movies]="movies"></app-movie>
 
     <nav>
         <ul class="pagination pagination">
@@ -27,7 +16,7 @@
                 <a class="page-link">1</a>
             </li>
 
-            <li class="page-item" *ngFor="let item of items">
+            <li class="page-item" *ngFor="let item of [2,3]">
                 <a (click)="pagination(item)" class="page-link">{{ item }}</a>
             </li>
     

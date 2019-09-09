@@ -1,12 +1,12 @@
 <div class="container">
-    <h2>Populares</h2>
-
+    
     <div class="card-columns">
       
-        <div (click)="open(popular)" class="card text-white" *ngFor="let popular of populars">
-            <img class="card-img" src="{{ urlImage + popular?.poster_path }}">
+        <div (click)="open(movie)" class="card text-white" *ngFor="let movie of movies">
+            <img *ngIf="movie?.poster_path != null" class="card-img" src="{{ urlImage + movie?.poster_path }}" [alt]="movie?.title">
+            <img *ngIf="movie?.poster_path == null" class="card-img" src="https://i.pinimg.com/originals/9f/14/af/9f14af13b574acc93b72adc68c0ffe69.png" [alt]="movie?.title">
             <div class="card-footer" style="color:black">
-                <h5> {{ popular?.title }} </h5>
+                <h5> {{ movie?.title }} </h5>
             </div>
         </div>
 

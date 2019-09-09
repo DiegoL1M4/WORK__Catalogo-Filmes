@@ -10,7 +10,7 @@ import { MoviedbService } from 'src/app/services/moviedb.service';
 })
 export class HomeComponent implements OnInit {
 
-  populars: any;
+  movies: any;
 
   urlImage = 'https://image.tmdb.org/t/p/original';
 
@@ -19,8 +19,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.moviedbService.populars()
     .subscribe(({results}: any) => {
-      this.populars = results;
+      this.movies = results;
     });
+  }
+
+  open(movie: any) {
+    this.router.navigate(['/details/' + movie.id]);
   }
 
 }

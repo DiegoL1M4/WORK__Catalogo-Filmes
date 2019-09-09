@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs/operators';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
 
@@ -27,22 +28,24 @@ export class NavbarComponent implements OnInit {
   }
 
   reset() {
-    this.router.navigate(['/'], {});
+    //this.router.navigate(['/'], {});
   }
 
-  categore(genre: any, name: string) {
-    this.router.navigate(['/categories/' + genre.id + '/' + genre.name + '/1'], {});
+  categore(genre: any) {
+    this.router.navigate(['/search'], {});
+    delay(5000);
+    this.router.navigate(['/categories/' + genre.id + '/1', {name: genre.name}]);
   }
 
   fonteAlt(op: string) {
-    this.fonte = parseInt( $('*').css('font-size'), 10);
+    /*this.fonte = parseInt( $('*').css('font-size'), 10);
     if (op === '+') {
       $('*').css('fontSize', this.fonte + 1);
     } else if (op === '-') {
       $('*').css('fontSize', this.fonte - 1);
     } else {
       $('*').css('fontSize', 16);
-    }
+    }*/
   }
 
 }

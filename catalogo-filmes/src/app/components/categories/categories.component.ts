@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { tap, map } from 'rxjs/operators';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
+import { Pesquisa } from './../../interfaces/pesquisa';
 
 @Component({
   selector: 'app-categories',
@@ -10,28 +12,33 @@ import { MoviedbService } from 'src/app/services/moviedb.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  genresMovies: any;
+  @Input() movies: any;
   genre: string;
   id: any;
   page: string;
-  items = [2, 3];
+  total: string;
 
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(private router: Router, private moviedbService: MoviedbService, private route: ActivatedRoute) {
     this.route.params.subscribe((res) => {this.id = res.id; this.genre = res.name; this.page = res.page; });
+    this.route.paramMap
+      .subscribe((params: ParamMap) => {this.genre = params.get('name'); });
   }
 
   ngOnInit() {
-    this.moviedbService.moviesGenre(this.id, this.page)
-    .subscribe(({results}: any) => {
-      this.genresMovies = results;
+    this.moviedbService.moviesGenre(this.id, this.page).pipe(
+      tap((params: Pesquisa) => console.log(this.total = params.total_pages) )
+    )
+    .subscribe((data: Pesquisa) => {
+      console.log(data);
+
+      this.movies = data.results;
     });
   }
 
   pagination(item: string) {
-    this.router.navigate(['/'], {});
-    this.router.navigate(['/' + window.location.pathname + item], {});
+    this.router.navigate(['/categories/' + this.id + '/' + item, {name: this.genre}]);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { MoviedbService } from './../../services/moviedb.service';
 import { Movie } from './../../interfaces/movie';
@@ -12,35 +12,27 @@ import { Pesquisa } from './../../interfaces/pesquisa';
 })
 export class MovieComponent implements OnInit {
 
-  populars: any;
-  searchs: any;
-  genres: any;
-  genresMovies: any;
+  @Input() movies: any;
 
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(private router: Router, private moviedbService: MoviedbService) { }
 
   ngOnInit() {
-
+    /*
     this.moviedbService.populars()
     .subscribe(({results}: any) => {
-      this.populars = results;
+      this.movies = results;
     });
 
     this.moviedbService.search('vingadores')
     .subscribe(({results}: any) => {
-      this.searchs = results;
+      this.movies = results;
     });
 
-    this.moviedbService.genres()
-    .subscribe(({genres}: any) => {
-      this.genres = genres;
-    });
-
-    this.moviedbService.moviesGenre('28')
+    this.moviedbService.moviesGenre('28', '1')
     .subscribe(({results}: any) => {
-      this.genresMovies = results;
+      this.movies = results;
     });
 
 

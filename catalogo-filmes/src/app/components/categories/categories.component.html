@@ -3,28 +3,24 @@
     <h3> {{ genre }} </h3>
     
     <!-- Movies Component -->
-    <app-movie [movies]="movies"></app-movie>
+    <app-movie [movies]="movies"></app-movie> <br>
 
     <!-- Pagination -->
     <div class="caixa d-flex justify-content-center">
       <nav class="item">
           <ul class="pagination pagination">
-              <li class="page-item">
-                  <a (click)="pagination('-') class="page-link">
+              <li class="page-item pageButtons">
+                  <a (click)="pagination('-')" class="page-link">
                       <span>Anterior</span>
                   </a>
               </li>
 
               <li class="page-item active">
-                  <a class="page-link"> {{ page }} </a>
+                  <a class="page-link  px-4"> {{ page }} </a>
               </li>
 
-              <!-- li class="page-item" *ngFor="let item of [2,3]">
-                  <a (click)="pagination(item)" class="page-link">{{ item }}</a>
-              </li-->
-
-              <li class="page-item">
-                  <a (click)="pagination('+') class="page-link">
+              <li class="page-item pageButtons">
+                  <a (click)="pagination('+')" class="page-link">
                       <span>Próximo</span>
                   </a>
               </li>

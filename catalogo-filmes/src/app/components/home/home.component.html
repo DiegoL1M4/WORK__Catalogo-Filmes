@@ -1,3 +1,4 @@
+
 <div class="container">
 
     <!-- Carousel -->
@@ -15,13 +16,13 @@
         <!-- Content -->
         <div class="carousel-inner"> 
             <div (click)="open(movies[0])" class="carousel-item active">
-                <img src="{{ urlImage + movies[0]?.backdrop_path }}" class="img-fluid">
+                <img src="{{ urlImage + movies[0]?.backdrop_path }}" class="img-fluid" [alt]="movies[0]?.title">
                 <div class="carousel-caption">
                     <h3 class="bg-dark rounded py-2">{{ movies[0]?.title }}</h3>
                 </div>
             </div>
             <div  (click)="open(movie)" class="carousel-item" *ngFor="let movie of movies | slice:1:5">
-                <img src="{{ urlImage + movie?.backdrop_path }}" class="img-fluid">
+                <img src="{{ urlImage + movie?.backdrop_path }}" class="img-fluid" [alt]="movie?.title">
                 <div class="carousel-caption">
                     <h3 class="bg-dark rounded py-2">{{ movie?.title }}</h3>
                 </div>
@@ -50,7 +51,7 @@
         <nav class="item">
             <ul class="pagination pagination">
                 <li class="page-item pageButtons">
-                    <a (click)="pagination('-')" class="page-link">
+                    <a (click)="pagination('-')" class="page-link ng-view" autoscroll="true">
                         <span>Anterior</span>
                     </a>
                 </li>
@@ -60,7 +61,7 @@
                 </li>
     
                 <li class="page-item pageButtons">
-                    <a (click)="pagination('+')" class="page-link">
+                    <a (click)="pagination('+')" class="page-link ng-view" autoscroll="true">
                         <span>Próximo</span>
                     </a>
                 </li>

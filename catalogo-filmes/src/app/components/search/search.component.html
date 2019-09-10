@@ -1,7 +1,22 @@
 
 <div class="container">
+    <!-- Search Title -->
     <h5>Resultados da Pesquisa</h5>
+
+    <!-- Movie Component -->
+    <div *ngIf="load; else loading">
+        <app-movie [movies]="movies"></app-movie>
+    </div>
     
-    <app-movie [movies]="movies"></app-movie>
+    <!-- Loading Element -->
+    <ng-template #loading>
+        <br><br><br><br>
+        <div class="row text-center animated fadeIn">
+            <div class="col">
+                <i class="fa fa-sync fa-spin fa-5x"></i>
+                <span class="sr-only">Carregando</span>
+            </div>
+        </div>
+    </ng-template>
     
 </div>

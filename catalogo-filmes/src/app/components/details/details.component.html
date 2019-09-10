@@ -1,5 +1,7 @@
+
 <div class="container main-container animated fadeIn fast">
 
+    <!-- Movie Title -->
     <div class="row">
         <div class="col-sm-12">
             <h2> {{ movie.title }} </h2>
@@ -7,14 +9,17 @@
         </div>
     </div>
 
+    <!-- Content -->
     <div class="row">
 
+        <!-- Poster -->
         <div class="col-sm-5">
-            <img src="{{ urlImage + movie?.poster_path }}" [alt]="movie.title" class="img-thumbnail img-fluid">
+            <img *ngIf="movie?.poster_path != null" class="card-img" src="{{ urlImage + movie?.poster_path }}" [alt]="movie?.title">
+            <img *ngIf="movie?.poster_path == null" class="card-img" src="https://i.pinimg.com/originals/9f/14/af/9f14af13b574acc93b72adc68c0ffe69.png" [alt]="movie?.title">
             <br>
         </div>
 
-
+        <!-- Info -->
         <div class="col-sm-7">
             <h3>Sinopse:</h3>
             <hr>
@@ -31,7 +36,6 @@
             <button onClick="history.go(-1)" type="button" class="btn btn-outline-danger">
                 Retornar
             </button>
-
         </div>
     </div>
 </div>

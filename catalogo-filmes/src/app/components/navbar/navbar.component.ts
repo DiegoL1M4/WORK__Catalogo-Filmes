@@ -14,21 +14,23 @@ export class NavbarComponent implements OnInit {
   genres: any;
   fonte: number;
 
-  constructor(private router: Router, private moviedbService: MoviedbService) { }
+  constructor(
+    private router$: Router,
+    private moviedbService$: MoviedbService) { }
 
   ngOnInit() {
-    this.moviedbService.genres()
+    this.moviedbService$.genres()
     .subscribe((data: Genres) => {
       this.genres = data.genres;
     });
   }
 
   pesquisar(query: string) {
-    this.router.navigate(['/search/' + query], {});
+    this.router$.navigate(['/search/' + query], {});
   }
 
   categore(genre: any) {
-    this.router.navigate(['/categories/' + genre.id + '/1', {name: genre.name}]);
+    this.router$.navigate(['/categories/' + genre.id + '/1', {name: genre.name}]);
   }
 
   fonteAlt(op: string) {

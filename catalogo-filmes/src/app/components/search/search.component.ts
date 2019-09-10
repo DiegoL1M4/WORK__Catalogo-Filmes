@@ -1,9 +1,8 @@
-import { Pesquisa } from './../../interfaces/pesquisa';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { tap, map } from 'rxjs/operators';
 
 import { MoviedbService } from './../../services/moviedb.service';
+import { Pesquisa } from './../../interfaces/pesquisa';
 
 @Component({
   selector: 'app-search',
@@ -14,16 +13,14 @@ export class SearchComponent implements OnInit {
 
   movies: any = [];
   query: any;
-
-  total: any;
-
-  urlImage = 'https://image.tmdb.org/t/p/original';
+  load = false;
 
   constructor(
     private moviedbService$: MoviedbService,
     private route$: ActivatedRoute) { }
 
   ngOnInit() {
+
     this.route$.url.subscribe(url => {
       this.route$.paramMap
         .subscribe((params: ParamMap) => {this.query = params.get('query'); });
@@ -31,8 +28,10 @@ export class SearchComponent implements OnInit {
       this.moviedbService$.search(this.query)
       .subscribe((data: Pesquisa) => {
         this.movies = data.results;
+        this.load = true;
       });
      });
+
   }
 
 }

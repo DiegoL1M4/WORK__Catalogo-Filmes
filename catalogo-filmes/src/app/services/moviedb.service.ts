@@ -14,7 +14,8 @@ export class MoviedbService {
   private urlMovie = 'https://api.themoviedb.org/3';
   private apiKey = 'api_key=1f572d4eeb91cf40b81c28fd4af4c3e4';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 
   getMovie(id: any) {
     const url = `${this.urlMovie}/movie/${id}?${this.apiKey}&language=pt-br`;

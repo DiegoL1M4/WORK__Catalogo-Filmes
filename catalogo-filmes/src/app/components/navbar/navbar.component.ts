@@ -12,7 +12,7 @@ import { Genres } from './../../interfaces/genres';
 export class NavbarComponent implements OnInit {
 
   genres: any;
-  fonte: number;
+  fontTam = 10;
 
   constructor(
     private router$: Router,
@@ -34,14 +34,14 @@ export class NavbarComponent implements OnInit {
   }
 
   fonteAlt(op: string) {
-    /*this.fonte = parseInt( $('*').css('font-size'), 10);
+    this.fontTam = parseInt( $('*').css('font-size'), 10);
     if (op === '+') {
-      $('*').css('fontSize', this.fonte + 1);
+      $('*').css('fontSize', this.fontTam + 1);
     } else if (op === '-') {
-      $('*').css('fontSize', this.fonte - 1);
+      $('*').css('fontSize', this.fontTam - 1);
     } else {
       $('*').css('fontSize', 16);
-    }*/
+    }
   }
 
 }

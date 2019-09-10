@@ -7,26 +7,6 @@
     <app-movie [movies]="movies"></app-movie> <br>
 
     <!-- Pagination -->
-    <div class="caixa d-flex justify-content-center">
-      <nav class="item">
-          <ul class="pagination pagination">
-              <li class="page-item pageButtons">
-                  <a (click)="pagination('-')" class="page-link">
-                      <span>Anterior</span>
-                  </a>
-              </li>
-
-              <li class="page-item active">
-                  <a class="page-link  px-4"> {{ page }} </a>
-              </li>
-
-              <li class="page-item pageButtons">
-                  <a (click)="pagination('+')" class="page-link">
-                      <span>Próximo</span>
-                  </a>
-              </li>
-          </ul>
-      </nav>
-    </div>
+    <app-pagination></app-pagination>
     
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
+import { Movie } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-details',
@@ -22,7 +23,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
 
     this.moviedbService.getMovie(this.id)
-    .subscribe((data: any) => {
+    .subscribe((data: Movie) => {
       this.movie = data;
     });
 

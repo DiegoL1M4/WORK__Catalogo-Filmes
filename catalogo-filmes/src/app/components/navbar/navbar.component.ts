@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
+import { Genres } from './../../interfaces/genres';
 
 @Component({
   selector: 'app-navbar',
@@ -17,8 +18,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.moviedbService.genres()
-    .subscribe(({genres}: any) => {
-      this.genres = genres;
+    .subscribe((data: Genres) => {
+      this.genres = data.genres;
     });
   }
 

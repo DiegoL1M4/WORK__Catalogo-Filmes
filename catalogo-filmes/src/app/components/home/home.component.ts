@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
+import { Pesquisa } from './../../interfaces/pesquisa';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +24,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe(url => {
       this.moviedbService.populars(this.page.toString())
-      .subscribe(({results}: any) => {
-        this.movies = results;
+      .subscribe((data: Pesquisa) => {
+        this.movies = data.results;
       });
     });
   }

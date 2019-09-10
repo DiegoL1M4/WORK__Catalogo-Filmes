@@ -4,9 +4,22 @@
     <h3> {{ genre }} </h3>
     
     <!-- Movie Component -->
-    <app-movie [movies]="movies"></app-movie> <br>
+    <div *ngIf="load; else loading">
+        <app-movie [movies]="movies"></app-movie> <br>
+    </div>
 
     <!-- Pagination -->
-    <app-pagination></app-pagination>
+    <app-pagination [page]="page" (evento)="pagination($event)"></app-pagination>
+
+    <!-- Loading Element -->
+    <ng-template #loading>
+        <br><br><br><br>
+        <div class="row text-center animated fadeIn">
+            <div class="col">
+                <i class="fa fa-sync fa-spin fa-5x"></i>
+                <span class="sr-only">Carregando</span>
+            </div>
+        </div>
+    </ng-template>
     
 </div>

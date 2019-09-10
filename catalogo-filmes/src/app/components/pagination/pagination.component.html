@@ -1,8 +1,9 @@
+
 <div class="caixa d-flex justify-content-center">
     <nav class="item">
         <ul class="pagination pagination">
             <li class="page-item pageButtons">
-                <a (click)="pagination('-')" class="page-link">
+                <a (click)="pageChange('-')" class="page-link">
                     <span>Anterior</span>
                 </a>
             </li>
@@ -12,7 +13,7 @@
             </li>
 
             <li class="page-item pageButtons">
-                <a (click)="pagination('+')" class="page-link">
+                <a (click)="pageChange('+')" class="page-link">
                     <span>Próximo</span>
                 </a>
             </li>

@@ -47,6 +47,6 @@
     <app-movie [movies]="movies"></app-movie> <br>
 
     <!-- Pagination -->
-    <app-pagination></app-pagination>
+    <app-pagination [page]="page" (evento)="pagination($event)"></app-pagination>
 
 </div>

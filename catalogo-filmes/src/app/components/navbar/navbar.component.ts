@@ -33,15 +33,4 @@ export class NavbarComponent implements OnInit {
     this.router$.navigate(['/categories/' + genre.id + '/1', {name: genre.name}]);
   }
 
-  fonteAlt(op: string) {
-    this.fontTam = parseInt( $('*').css('font-size'), 10);
-    if (op === '+') {
-      $('*').css('fontSize', this.fontTam + 1);
-    } else if (op === '-') {
-      $('*').css('fontSize', this.fontTam - 1);
-    } else {
-      $('*').css('fontSize', 16);
-    }
-  }
-
 }

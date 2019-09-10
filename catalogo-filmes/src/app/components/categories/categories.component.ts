@@ -15,6 +15,7 @@ export class CategoriesComponent implements OnInit {
   genre: string;
   id: any;
   page: number;
+  load = false;
 
   constructor(
     private router$: Router,
@@ -36,12 +37,13 @@ export class CategoriesComponent implements OnInit {
       this.moviedbService$.moviesGenre(this.id, this.page.toString())
       .subscribe((data: Pesquisa) => {
         this.movies = data.results;
+        this.load = true;
       });
     });
 
   }
 
-  pagination(item: string) {
+  pagination(item: any) {
     if (item === '+') {
       this.page += 1;
     } else if (item === '-' && this.page !== 1) {

@@ -12,6 +12,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { DetailsComponent } from './components/details/details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CategoriesComponent,
     DetailsComponent,
     PageNotFoundComponent,
-    PaginationComponent
+    PaginationComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 <div class="container">
 
+    <!-- Carousel -->
     <div id="carousel-indicadores" class="carousel slide" data-ride="carousel"> <!--Carousel -->
 
         <!-- Indicadores -->
@@ -11,7 +12,8 @@
             <li data-target="#carousel-indicadores" data-slide-to="4"></li>
         </ol>
 
-        <div class="carousel-inner"> <!--Inner -->
+        <!-- Content -->
+        <div class="carousel-inner"> 
             <div (click)="open(movies[0])" class="carousel-item active">
                 <img src="{{ urlImage + movies[0]?.backdrop_path }}" class="img-fluid">
                 <div class="carousel-caption">
@@ -24,24 +26,46 @@
                     <h3 class="bg-dark rounded py-2">{{ movie?.title }}</h3>
                 </div>
             </div>
-
-        </div> <!--/Inner -->
+        </div>
 
         <!-- Controles -->
         <a href="#carousel-indicadores" class="carousel-control-prev" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </a>
-
         <a href="#carousel-indicadores" class="carousel-control-next" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
-
-    </div><!--/Carousel -->
+    </div>
 
     <br>
     
+    <!-- Home Title -->
     <h3>Populares</h3>
     
-    <app-movie [movies]="movies"></app-movie>
+    <!-- Movie Component -->
+    <app-movie [movies]="movies"></app-movie> <br>
+
+    <!-- Pagination -->
+    <div class="caixa d-flex justify-content-center">
+        <nav class="item">
+            <ul class="pagination pagination">
+                <li class="page-item pageButtons">
+                    <a (click)="pagination('-')" class="page-link">
+                        <span>Anterior</span>
+                    </a>
+                </li>
+    
+                <li class="page-item active">
+                    <a class="page-link  px-4"> {{ page }} </a>
+                </li>
+    
+                <li class="page-item pageButtons">
+                    <a (click)="pagination('+')" class="page-link">
+                        <span>Próximo</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
 </div>

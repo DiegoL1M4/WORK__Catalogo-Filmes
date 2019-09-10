@@ -16,8 +16,8 @@ export class MoviedbService {
     return this.http.get<any[]>(url);
   }
 
-  populars() {
-    const url = `${this.urlMovie}/movie/popular?${this.apiKey}&language=pt-br&page=1`;
+  populars(page: string) {
+    const url = `${this.urlMovie}/movie/popular?${this.apiKey}&language=pt-br&page=${page}`;
     return this.http.get<any[]>(url);
   }
 

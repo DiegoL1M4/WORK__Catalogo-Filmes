@@ -10,7 +10,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'home/1'},
+  { path: 'home/:page', component: HomeComponent },
   { path: 'categories/:id/:page', component: CategoriesComponent },
   { path: 'search/:query', component: SearchComponent },
   { path: 'movie', component: MovieComponent },

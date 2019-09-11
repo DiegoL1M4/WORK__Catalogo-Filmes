@@ -9,6 +9,15 @@ Cliente WEB com a função de mostrar um catálogo de filmes. Possui as funçõe
 * Bootstrap
 * Font Awesome
 
+# Executar Projeto Angular
+´´´
+$ npm install
+´´´
+´´´
+$ ng serve
+´´´
+
+
 # Componentes de Página
 * Home - Página principal.
 * Search - Página que retorna os filmes de acordo com a pesquisa.
@@ -18,18 +27,20 @@ Cliente WEB com a função de mostrar um catálogo de filmes. Possui as funçõe
 
 # Componentes de Funcionalidades
 * Navbar - Barra de navegação com pesquisa e dropdown das categorias de filmes.
+* Footer - Rodapé da página
 * Movies - Conjundo de cards (filmes) por coluna.
+* Slide - Mostra os cinco primeiros filmes de uma pesquisa em um slider.
 * Pagination - Movimentação entre as páginas.
 * Loading - Elemento de carregamento dos filmes.
 
-# Interfaces
+# Services
+* MovieDB - estabelece todas as consultas à API do The MovieDB.
+
+# Interfaces das Pesquisas
 * Pesquisa
 * Movie
 * Genres
 * Genre
-
-# Services
-* MovieDB - estabelece todas as consultas à API do The MovieDB.
 
 # Esquema de Rotas
 ```javascript

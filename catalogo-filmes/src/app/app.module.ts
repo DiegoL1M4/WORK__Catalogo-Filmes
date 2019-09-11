@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SlideComponent } from './components/slide/slide.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SlideComponent } from './components/slide/slide.component';
     PageNotFoundComponent,
     PaginationComponent,
     LoadingComponent,
-    SlideComponent
+    SlideComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

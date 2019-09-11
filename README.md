@@ -10,12 +10,13 @@ Cliente WEB com a função de mostrar um catálogo de filmes. Possui as funçõe
 * Font Awesome
 
 # Executar Projeto Angular
-´´´
+Dentro da página catalogo-filme:
+```
 $ npm install
-´´´
-´´´
+```
+```
 $ ng serve
-´´´
+```
 
 
 # Componentes de Página

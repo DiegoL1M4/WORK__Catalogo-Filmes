@@ -1,6 +1,6 @@
 ﻿# Catalogo de Filmes
 
-Cliente WEB com a função de mostrar um catálogo de filmes. Possui as funções de categorias e pesquisa.
+Cliente WEB para a exibição de um catálogo de filmes. Possui as categorias de filmes e a ferramenta de pesquisa.
 
 # Requisitos
 * Angular

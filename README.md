@@ -30,3 +30,15 @@ Cliente WEB com a função de mostrar um catálogo de filmes. Possui as funçõe
 
 # Services
 * MovieDB - estabelece todas as consultas à API do The MovieDB.
+
+# Esquema de Rotas
+```javascript
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home/1'},
+  { path: 'home/:page', component: HomeComponent },
+  { path: 'categories/:id/:page', component: CategoriesComponent },
+  { path: 'search/:query', component: SearchComponent },
+  { path: 'details/:id', component: DetailsComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
+```

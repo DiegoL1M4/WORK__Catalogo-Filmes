@@ -13,6 +13,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { SlideComponent } from './components/slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     DetailsComponent,
     PageNotFoundComponent,
     PaginationComponent,
-    LoadingComponent
+    LoadingComponent,
+    SlideComponent
   ],
   imports: [
     BrowserModule,

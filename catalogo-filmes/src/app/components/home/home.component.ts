@@ -14,8 +14,6 @@ export class HomeComponent implements OnInit {
   movies: any;
   page = 1;
 
-  urlImage = 'https://image.tmdb.org/t/p/original';
-
   constructor(
     private router$: Router,
     private moviedbService$: MoviedbService,
@@ -32,10 +30,6 @@ export class HomeComponent implements OnInit {
         this.movies = data.results;
       });
     });
-  }
-
-  open(movie: any) {
-    this.router$.navigate(['/details/' + movie.id]);
   }
 
   pagination(item: string) {

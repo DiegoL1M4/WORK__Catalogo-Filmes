@@ -17,6 +17,9 @@ export class AccessibilityService {
     'body', 'h5', 'h3', 'h2', 'a', 'footer', 'div', 'nav', 'header'
   );
 
+  fontClass = Array('f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8');
+  fonte = 4; // 0123 4 5678
+
   increaseFont() {
     if (this.fontCurrent < this.maxFont) {
       this.elements.forEach(e => {
@@ -87,6 +90,24 @@ export class AccessibilityService {
   changeContraste() {
     this.contraste = !this.contraste;
     this.applyContraste();
+  }
+
+
+
+
+
+  changeFont(op: string) {
+    document.body.classList.remove(this.fontClass[this.fonte]);
+
+    if (op === '+' && this.fonte < 8) {
+      this.fonte = this.fonte + 1;
+    } else if (op === '-' && 0 < this.fonte) {
+      this.fonte = this.fonte - 1;
+    } else if (op === 'A') {
+      this.fonte = 4;
+    }
+
+    document.body.classList.add(this.fontClass[this.fonte]);
   }
 
 }

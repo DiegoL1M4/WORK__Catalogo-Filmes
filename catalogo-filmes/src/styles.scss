@@ -8,7 +8,33 @@ body {
     color: dodgerblue;
 }
 
-/* Definições do alto contraste */
+/* ACESSIBILIDADE: Definições do ajuste de fonte */
+@for $i from 0 to 9 {
+    .f#{$i} {
+        font-size: #{0.60+($i/10)}rem;
+        .navbar-brand {
+            font-size: #{0.85+($i/10)}rem; // 1.25
+        }
+        .dropdown-item {
+            font-size: #{0.60+($i/10)}rem; // 1.00
+        }
+        h2 {
+            font-size: #{1.60+($i/10)}rem; // 1.75
+        }
+        h3 {
+            font-size: #{1.35+($i/10)}rem; // 1.75
+        }
+        h5 {
+            font-size: #{0.85+($i/10)}rem; // 0.83
+        }
+        footer {
+            font-size: #{8+$i}px !important; // 12
+        }
+    }
+}
+
+
+/* ACESSIBILIDADE: Definições do alto contraste */
 .contrast {
     background-color: black;
 

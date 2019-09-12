@@ -4,5 +4,5 @@ export interface Pesquisa {
     page: any;
     total_results: any;
     total_pages: any;
-    results: Movie[];
+    results: any[];
 }

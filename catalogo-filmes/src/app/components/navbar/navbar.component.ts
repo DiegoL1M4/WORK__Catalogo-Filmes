@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ɵɵresolveBody } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
@@ -16,10 +16,12 @@ export class NavbarComponent implements OnInit {
   altoContrate = false;
 
   public elements = new Array(
-    'body', 'h5', 'h3', 'h2', 'a', 'footer'
+    'body', 'h5', 'h3', 'h2', 'a', 'footer', 'div', 'nav', 'header'
   );
 
-  @ViewChild('estilo', { static: false }) ajuste: ElementRef;
+  current = 0;
+  maxFont = 4;
+  minFont = -4;
 
   constructor(
     private router$: Router,
@@ -41,36 +43,80 @@ export class NavbarComponent implements OnInit {
   }
 
   contraste() {
-    this.altoContrate ? this.altoContrate = false : this.altoContrate = true;
+    this.elements.forEach(e => {
+      this.elementsContraste(e);
+    });
 
-    (this.ajuste.nativeElement as HTMLParagraphElement).style.backgroundColor = 'black';
+    const elements2 = document.getElementsByTagName('button');
+    for (let i = 0; i < elements2.length; i++) {
+      const element = document.getElementsByTagName('button')[i];
+      element.style.background = 'black';
+      element.style.color = 'yellow';
+    }
   }
 
-  fonteAlt(operator: string) {
-    operator === '+' ? this.fontSize++ : this.fontSize--;
-    (this.ajuste.nativeElement as HTMLParagraphElement).style.fontSize = `${this.fontSize}px`;
+  elementsContraste(tag) {
+    const elements1 = document.getElementsByTagName(tag);
+    for (let i = 0; i < elements1.length; i++) {
+      const element = document.getElementsByTagName(tag)[i];
+      element.style.background = 'black';
+      element.style.color = 'white';
+    }
   }
-
-
 
   increaseFont() {
-    this.elements.forEach(e => {
-      this.changeFontSize(e, 'INC');
-    });
+    if (this.current < this.maxFont) {
+      this.elements.forEach(e => {
+        this.changeFontSize(e, 'INC');
+      });
+      this.current++;
+    }
   }
 
   decreaseFont() {
+    if (this.minFont < this.current) {
+      this.elements.forEach(e => {
+        this.changeFontSize(e, 'DEC');
+      });
+      this.current--;
+    }
+  }
+
+  recoveryFont2() {
+    while (this.current !== 0) {
+      if (this.current < 0) {
+        this.increaseFont();
+      } else {
+        this.decreaseFont();
+      }
+    }
+  }
+
+
+
+  recoveryFont() {
     this.elements.forEach(e => {
-      this.changeFontSize(e, 'DEC');
+      this.recoveryFontAux(e);
     });
+  }
+  recoveryFontAux(tag) {
+    const elements = document.getElementsByTagName(tag);
+
+    for (let i = 0; i < elements.length; i++) {
+      const element = document.getElementsByTagName(tag)[i];
+      const fontString = window.getComputedStyle(element, null).getPropertyValue('font-size');
+      const fontNumber = parseFloat(fontString);
+
+      element.style.fontSize = fontNumber + 'px';
+    }
   }
 
   changeFontSize(tag, order) {
-    let elements = document.getElementsByTagName(tag);
+    const elements = document.getElementsByTagName(tag);
 
     for (let i = 0; i < elements.length; i++) {
-      let element = document.getElementsByTagName(tag)[i];
-      let fontString = window.getComputedStyle(element, null).getPropertyValue('font-size');
+      const element = document.getElementsByTagName(tag)[i];
+      const fontString = window.getComputedStyle(element, null).getPropertyValue('font-size');
       let fontNumber = parseFloat(fontString);
 
       if (order === 'INC') {

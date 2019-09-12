@@ -22,7 +22,7 @@
             data-toggle="dropdown">Categorias</a>
 
             <div class="dropdown-menu" style="overflow-y: auto; height: 800%">
-              <a (click)="categore(genre)" class="dropdown-item" *ngFor="let genre of genres"> {{ genre.name }} </a>
+              <button (click)="categore(genre)" class="dropdown-item" *ngFor="let genre of genres"> {{ genre.name }} </button>
             </div>
           </li>
 

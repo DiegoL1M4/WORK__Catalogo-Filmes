@@ -19,8 +19,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private router$: ActivatedRoute,
-    private moviedbService$: MoviedbService,
-    private accessibility: AccessibilityService) {
+    private moviedbService$: MoviedbService) {
 
     this.router$.params.subscribe(res => this.id = res.id);
   }

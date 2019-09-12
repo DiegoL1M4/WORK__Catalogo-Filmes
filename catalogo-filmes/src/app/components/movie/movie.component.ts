@@ -15,8 +15,7 @@ export class MovieComponent implements OnInit {
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(
-    private router$: Router,
-    private accessibility: AccessibilityService) { }
+    private router$: Router) { }
 
   ngOnInit() { }
 

@@ -9,21 +9,46 @@ body {
 }
 
 .contrast {
-    background: black;
-    color: white;
-    border: 1px solid white;
+    background-color: black;
+
+    a, h5, input, div, .badge, .bg-dark {
+        background-color: black !important;
+        color: white;
+    }
+
     button {
         background: black;
         color: yellow;
         border: 1px solid white;
     }
-    body, html, header, a, li, input, span, h5, h3, div, .active, nav, .badge, .navbar, .container, .navbar-expand-md, .navbar-dark, .bg-dark, .fixed-top, .navbar-dark, .bg-dark {
-        background-color: black;
-        color: white;
-    }
-    a:hover, .dropdown-item {
-        background-color: black;
+    button:hover {
+        background: black;
         color: yellow;
+        border: 1px solid yellow;
+    }
+    
+    
+    .dropdown-item {
+        background-color: black;
+        color: yellow !important;
+        border: 1px solid white;
+    }
+    a:hover {
+        border: 1px solid yellow;
+    }
+
+    .card {
+        border: 1px solid white;
+    }
+    .card:hover {
+        border: 1px solid yellow;
+    }
+
+    .navbar {
+        border-bottom: 1px solid white;
+    }
+    footer {
+        border-top: 1px solid white;
     }
 }
 

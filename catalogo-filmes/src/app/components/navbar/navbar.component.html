@@ -18,7 +18,7 @@
         <ul class="navbar-nav ml-auto">
           
           <li class="nav-item dropdown mr-3">
-            <a  (click)="reset()" href="" class="nav-link dropdown-toggle" 
+            <a href="" class="nav-link dropdown-toggle" 
             data-toggle="dropdown">Categorias</a>
 
             <div class="dropdown-menu" style="overflow-y: auto; height: 800%">
@@ -55,7 +55,7 @@
           <!-- Pesquisa -->
           <li class="nav-item dropdown">
             <div class="input-group">
-              <input (focus)="reset()" class="form-control" type="text" placeholder="Pesquisar" #campoInput>
+              <input class="form-control" type="text" placeholder="Pesquisar" #campoInput>
 
               <div class="input-group-append">
                 <button (click)="pesquisar(campoInput.value)" type="button" class="btn btn-info">

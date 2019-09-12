@@ -4,7 +4,7 @@
     <!-- Movie Title -->
     <div class="row">
         <div class="col-sm-12">
-            <h2> {{ movie.title }} </h2>
+            <h2> {{ movie?.title }} </h2>
             <br>
         </div>
     </div>
@@ -24,13 +24,13 @@
             <h3>Sinopse:</h3>
             <hr>
             <p class="text-justify">
-                {{ movie.overview }}
+                {{ movie?.overview }}
             </p>
 
             <p>
-                Popularidade: <span class="badge badge-primary">{{ movie.popularity | number:".0-0" }}</span>
+                Popularidade: <span class="badge badge-primary">{{ movie?.popularity | number:".0-0" }}</span>
                 <br>
-                Média de Votos: <span class="badge badge-primary">{{ movie.vote_average }}</span>
+                Média de Votos: <span class="badge badge-primary">{{ movie?.vote_average }}</span>
             </p>
 
             <button onClick="history.go(-1)" type="button" class="btn btn-outline-danger">

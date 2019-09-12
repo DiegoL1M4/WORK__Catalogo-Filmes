@@ -5,10 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AccessibilityService {
 
-  constructor() {
-    this.recoveryFont(this.fontCurrent);
-    this.applyContraste();
-  }
+  constructor() { }
 
   contraste = false;
   fontCurrent = 0;
@@ -44,6 +41,18 @@ export class AccessibilityService {
         this.increaseFont();
       } else {
         this.decreaseFont();
+      }
+    }
+  }
+
+  ajusteFont() {
+    while (0 !== this.fontCurrent) {
+      if (0 < this.fontCurrent) {
+        this.increaseFont();
+        this.fontCurrent--;
+      } else {
+        this.decreaseFont();
+        this.fontCurrent++;
       }
     }
   }

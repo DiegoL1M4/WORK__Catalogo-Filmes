@@ -8,6 +8,7 @@ body {
     color: dodgerblue;
 }
 
+/* Definições do alto contraste */
 .contrast {
     background-color: black;
 
@@ -37,7 +38,7 @@ body {
         border: 1px solid yellow;
     }
 
-    .card {
+    img, .card {
         border: 1px solid white;
     }
     .card:hover {

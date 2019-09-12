@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
-import { AccessibilityService } from './../../services/accessibility.service';
 import { Movie } from 'src/app/interfaces/movie';
 
 @Component({

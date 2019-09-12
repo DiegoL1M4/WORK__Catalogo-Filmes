@@ -2,7 +2,9 @@
 <div class="container">
 
     <!-- Carousel -->
-    <app-slide [movies]="movies"></app-slide> <br>
+    <div *ngIf="page == 1">
+        <app-slide [movies]="movies"></app-slide> <br>
+    </div>
     
     <!-- Home Title -->
     <h3>Populares</h3>

@@ -15,9 +15,12 @@ export class MovieComponent implements OnInit {
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(
-    private router$: Router) { }
+    private router$: Router,
+    private accessibility: AccessibilityService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.accessibility.ajusteFont();
+  }
 
   open(movie: any) {
     this.router$.navigate(['/details/' + movie.id]);

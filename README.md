@@ -40,6 +40,7 @@ $ ng serve
 
 ## Services
 * MovieDB - estabelece todas as consultas à API do The MovieDB.
+* Accessibility - variáveis e funções para a acessibilidade.
 
 ## Interfaces das Pesquisas
 * Pesquisa

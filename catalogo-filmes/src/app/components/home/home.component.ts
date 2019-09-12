@@ -1,7 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { AccessibilityService } from './../../services/accessibility.service';
 import { MoviedbService } from 'src/app/services/moviedb.service';
 import { Pesquisa } from './../../interfaces/pesquisa';
 
@@ -18,8 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router$: Router,
     private moviedbService$: MoviedbService,
-    private route$: ActivatedRoute,
-    private accessibility: AccessibilityService) {
+    private route$: ActivatedRoute) {
 
     this.route$.params
       .subscribe((res) => this.page = parseInt(res.page, 10));

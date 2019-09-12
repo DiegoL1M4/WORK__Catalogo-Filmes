@@ -1,8 +1,11 @@
 ﻿# Catalogo de Filmes
 
-Cliente WEB para a exibição de um catálogo de filmes. Possui as categorias de filmes e a ferramenta de pesquisa.
+Cliente WEB para a exibição de um catálogo de filmes. Possui as categorias de filmes e a ferramenta de pesquisa. Conta com suporte a acessibilidade, nos seguintes itens:
+* Ajuste de fonte
+* Alto-contraste
+* Suporte à leitores de tela
 
-# Requisitos
+# Requisitos de Projeto
 * Angular
 * Node
 * API The Movie DB
@@ -10,7 +13,7 @@ Cliente WEB para a exibição de um catálogo de filmes. Possui as categorias de
 * Font Awesome
 
 # Executar Projeto Angular
-Dentro da página catalogo-filme:
+Dentro da pasta catalogo-filme:
 ```
 $ npm install
 ```
@@ -18,15 +21,16 @@ $ npm install
 $ ng serve
 ```
 
+# Descrição do Projeto
 
-# Componentes de Página
+## Componentes de Página
 * Home - Página principal.
 * Search - Página que retorna os filmes de acordo com a pesquisa.
 * Categories - Página que carrega os filmes de uma dada categoria.
 * Details - Página que mostra os detalhes de um filme.
 * Page Not Found - Página não encontrada.
 
-# Componentes de Funcionalidades
+## Componentes de Funcionalidades
 * Navbar - Barra de navegação com pesquisa e dropdown das categorias de filmes.
 * Footer - Rodapé da página
 * Movies - Conjundo de cards (filmes) por coluna.
@@ -34,16 +38,16 @@ $ ng serve
 * Pagination - Movimentação entre as páginas.
 * Loading - Elemento de carregamento dos filmes.
 
-# Services
+## Services
 * MovieDB - estabelece todas as consultas à API do The MovieDB.
 
-# Interfaces das Pesquisas
+## Interfaces das Pesquisas
 * Pesquisa
 * Movie
 * Genres
 * Genre
 
-# Esquema de Rotas
+## Esquema de Rotas
 ```javascript
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home/1'},

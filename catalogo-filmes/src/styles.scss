@@ -8,6 +8,25 @@ body {
     color: dodgerblue;
 }
 
+.contrast {
+    background: black;
+    color: white;
+    border: 1px solid white;
+    button {
+        background: black;
+        color: yellow;
+        border: 1px solid white;
+    }
+    body, html, header, a, li, input, span, h5, h3, div, .active, nav, .badge, .navbar, .container, .navbar-expand-md, .navbar-dark, .bg-dark, .fixed-top, .navbar-dark, .bg-dark {
+        background-color: black;
+        color: white;
+    }
+    a:hover, .dropdown-item {
+        background-color: black;
+        color: yellow;
+    }
+}
+
 /* Ajuste dos cards */
 @import '~bootstrap/scss/_functions';
 @import '~bootstrap/scss/_variables';
@@ -26,6 +45,4 @@ body {
     @include media-breakpoint-only(xl) {
         column-count: 6;
     }
-    column-count: 1;
-
 }

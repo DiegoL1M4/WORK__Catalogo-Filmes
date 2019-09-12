@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
+import { AccessibilityService } from './../../services/accessibility.service';
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -13,7 +15,8 @@ export class MovieComponent implements OnInit {
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(
-    private router$: Router) { }
+    private router$: Router,
+    private accessibility: AccessibilityService) { }
 
   ngOnInit() { }
 

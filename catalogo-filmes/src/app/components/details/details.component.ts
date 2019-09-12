@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
+import { AccessibilityService } from './../../services/accessibility.service';
 import { Movie } from 'src/app/interfaces/movie';
 
 @Component({
@@ -18,7 +19,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private router$: ActivatedRoute,
-    private moviedbService$: MoviedbService) {
+    private moviedbService$: MoviedbService,
+    private accessibility: AccessibilityService) {
 
     this.router$.params.subscribe(res => this.id = res.id);
   }

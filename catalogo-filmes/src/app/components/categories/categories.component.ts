@@ -15,6 +15,7 @@ export class CategoriesComponent implements OnInit {
   genre: string;
   id: any;
   page: number;
+  totalPages: number;
   load = false;
 
   constructor(
@@ -38,16 +39,20 @@ export class CategoriesComponent implements OnInit {
       .subscribe((data: Pesquisa) => {
         this.movies = data.results;
         this.load = true;
+
+        this.totalPages = data.total_pages;
       });
     });
 
   }
 
   pagination(item: any) {
-    if (item === '+') {
+    if (item === '+' && this.page < this.totalPages) {
       this.page += 1;
     } else if (item === '-' && this.page !== 1) {
       this.page -= 1;
+    } else if (item !== '+' && item !== '-') {
+      this.page = item;
     }
     this.router$.navigate(['/categories/' + this.id + '/' + this.page, {name: this.genre}]);
   }

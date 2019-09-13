@@ -8,8 +8,25 @@
                 </button>
             </li>
 
+            <li class="page-item pageButtons">
+                <button (click)="pageChange(1)" class="page-link  px-4">
+                    {{ 1 }}
+                    <span class="sr-only"> Página de filmes {{ 1 }} </span>
+                </button>
+            </li>
+
             <li class="page-item active">
-                <button class="page-link  px-4" disabled="true"> {{ page }} </button>
+                <button class="page-link  px-4" disabled="true">
+                    {{ page }} 
+                    <span class="sr-only"> Página de filmes {{ page }} </span>
+                </button>
+            </li>
+
+            <li class="page-item pageButtons">
+                <button (click)="pageChange(totalPages)" class="page-link  px-4"> 
+                    {{ totalPages }} 
+                    <span class="sr-only"> Página de filmes {{ totalPages }} </span>
+                </button>
             </li>
 
             <li class="page-item pageButtons">

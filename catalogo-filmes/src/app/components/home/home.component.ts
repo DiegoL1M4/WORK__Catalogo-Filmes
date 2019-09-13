@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   movies: any;
   page = 1;
+  totalPages: number;
 
   constructor(
     private router$: Router,
@@ -28,15 +29,19 @@ export class HomeComponent implements OnInit {
       this.moviedbService$.populars(this.page.toString())
       .subscribe((data: Pesquisa) => {
         this.movies = data.results;
+
+        this.totalPages = data.total_pages;
       });
     });
   }
 
-  pagination(item: string) {
-    if (item === '+') {
+  pagination(item: any) {
+    if (item === '+' && this.page < this.totalPages) {
       this.page += 1;
     } else if (item === '-' && this.page !== 1) {
       this.page -= 1;
+    } else if (item !== '+' && item !== '-') {
+      this.page = item;
     }
     this.router$.navigate(['/home/'  + this.page]);
   }

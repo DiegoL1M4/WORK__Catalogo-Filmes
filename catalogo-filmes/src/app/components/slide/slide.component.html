@@ -12,13 +12,7 @@
 
     <!-- Content -->
     <div class="carousel-inner">
-        <div (click)="open(movies[0])" class="carousel-item active">
-            <img src="{{ urlImage + movies[0]?.backdrop_path }}" class="img-fluid" [alt]="movies[0]?.title">
-            <div class="carousel-caption">
-                <h3 class="bg-dark rounded py-2">{{ movies[0]?.title }}</h3>
-            </div>
-        </div>
-        <div  (click)="open(movie)" class="carousel-item" *ngFor="let movie of movies | slice:1:5">
+        <div  (click)="open(movie)"  [ngClass]="i == '0' ? carouselActive : carouselNormal" *ngFor="let movie of movies | slice:0:5; let i = index">
             <img src="{{ urlImage + movie?.backdrop_path }}" class="img-fluid" [alt]="movie?.title">
             <div class="carousel-caption">
                 <h3 class="bg-dark rounded py-2">{{ movie?.title }}</h3>

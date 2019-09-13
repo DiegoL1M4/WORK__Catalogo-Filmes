@@ -40,7 +40,12 @@ body {
 
     a, h5, input, div, .badge, .bg-dark {
         background-color: black !important;
-        color: white;
+        color: white !important;
+    }
+
+    .page-item.active .page-link {
+        border-color: white !important;
+        background: black;
     }
 
     button {

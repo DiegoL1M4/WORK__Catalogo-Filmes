@@ -10,6 +10,9 @@ export class SlideComponent implements OnInit {
 
   @Input() movies: any;
 
+  carouselActive = 'carousel-item active';
+  carouselNormal = 'carousel-item';
+
   urlImage = 'https://image.tmdb.org/t/p/original';
 
   constructor(

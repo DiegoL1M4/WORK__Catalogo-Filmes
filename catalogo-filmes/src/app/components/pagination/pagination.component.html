@@ -4,14 +4,22 @@
         <ul class="pagination pagination">
             <li class="page-item pageButtons">
                 <button (click)="pageChange('-')" class="page-link">
-                    <span>Anterior</span>
+                    <i class="fas fa-backward mx-1"></i>
+                    <span class="sr-only">Página anterior</span>
                 </button>
             </li>
 
-            <li class="page-item pageButtons">
+            <li class="page-item pageButtons mr-2" *ngIf="page != 1">
                 <button (click)="pageChange(1)" class="page-link  px-4">
                     {{ 1 }}
                     <span class="sr-only"> Página de filmes {{ 1 }} </span>
+                </button>
+            </li>
+
+            <li class="page-item pageButtons" *ngIf="page != 1 && page != 2">
+                <button (click)="pageChange(page - 1)" class="page-link  px-4">
+                    {{ page - 1 }}
+                    <span class="sr-only"> Página de filmes {{ page - 1 }} </span>
                 </button>
             </li>
 
@@ -22,7 +30,14 @@
                 </button>
             </li>
 
-            <li class="page-item pageButtons">
+            <li class="page-item pageButtons" *ngIf="page != totalPages && page != totalPages-1">
+                    <button (click)="pageChange(page + 1)" class="page-link  px-4">
+                        {{ page + 1 }}
+                        <span class="sr-only"> Página de filmes {{ page + 1 }} </span>
+                    </button>
+                </li>
+
+            <li class="page-item pageButtons ml-2" *ngIf="page != totalPages">
                 <button (click)="pageChange(totalPages)" class="page-link  px-4"> 
                     {{ totalPages }} 
                     <span class="sr-only"> Página de filmes {{ totalPages }} </span>
@@ -31,7 +46,8 @@
 
             <li class="page-item pageButtons">
                 <button (click)="pageChange('+')" class="page-link">
-                    <span>Próximo</span>
+                    <i class="fas fa-forward  mx-1"></i>
+                    <span class="sr-only">Próxima página</span>
                 </button>
             </li>
         </ul>

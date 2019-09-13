@@ -27,8 +27,8 @@ export class MoviedbService {
     return this.http.get<Pesquisa>(url);
   }
 
-  search(query: string) {
-    const url = `${this.urlMovie}/search/movie?${this.apiKey}&language=pt-br&query=${query}&page=1&include_adult=false`;
+  search(query: string, page: number) {
+    const url = `${this.urlMovie}/search/movie?${this.apiKey}&language=pt-br&query=${query}&page=${page}&include_adult=false`;
     return this.http.get<Pesquisa>(url);
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { MoviedbService } from './../../services/moviedb.service';
 import { Pesquisa } from './../../interfaces/pesquisa';
@@ -13,9 +13,12 @@ export class SearchComponent implements OnInit {
 
   movies: any = [];
   query: any;
+  page = 1;
+  totalPages: number;
   load = false;
 
   constructor(
+    private router$: Router,
     private moviedbService$: MoviedbService,
     private route$: ActivatedRoute) { }
 
@@ -25,13 +28,20 @@ export class SearchComponent implements OnInit {
       this.route$.paramMap
         .subscribe((params: ParamMap) => {this.query = params.get('query'); });
 
-      this.moviedbService$.search(this.query)
+      this.moviedbService$.search(this.query, this.page)
       .subscribe((data: Pesquisa) => {
         this.movies = data.results;
         this.load = true;
+
+        this.totalPages = data.total_pages;
       });
      });
 
+  }
+
+  pagination(page: any) {
+    this.page = page;
+    this.router$.navigate(['/search/' + this.query + '/' + this.page]);
   }
 
 }

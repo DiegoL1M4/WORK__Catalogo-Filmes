@@ -12,5 +12,8 @@
     <ng-template #loading>
         <app-loading></app-loading>
     </ng-template>
+
+    <!-- Pagination -->
+    <app-pagination [page]="page" [totalPages]="totalPages" (evento)="pagination($event)"></app-pagination>
     
 </div>

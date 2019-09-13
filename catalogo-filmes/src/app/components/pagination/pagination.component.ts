@@ -25,6 +25,7 @@ export class PaginationComponent implements OnInit {
     } else if (op !== '+' && op !== '-') {
       this.page = op;
     }
+
     this.evento.emit(this.page);
   }
 

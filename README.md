@@ -72,23 +72,28 @@ const routes: Routes = [
 
 
 ## API The Movie DB
-O projeto conta com apenas um service que realiza toda a comunicação entre a API The Movie DB e o sistema. A seguir temos as definições utilizadas na pesquisa:
+O projeto usa um service que realiza toda a comunicação entre a API The Movie DB e o sistema. A seguir são listadas as funções e as devidas consultas à API:
+
 * getMovie()
 ```
 https://api.themoviedb.org/3/movie/{movie_id}?api_key={{chave}}&language=pt-BR
 ```
+
 * popular()
 ```
 https://api.themoviedb.org/3/movie/popular?api_key={{chave}}&language=pt-BR&page=1
 ```
+
 * search()
 ```
 https://api.themoviedb.org/3/search/movie?api_key={{chave}}&language=pt-br&query=vingadores&page=1&include_adult=false
 ```
+
 * genres()
 ```
 https://api.themoviedb.org/3/genre/movie/list?api_key={{chave}}&language=pt-BR
 ```
+
 * moviesGenre()
 ```
 https://api.themoviedb.org/3/discover/movie?api_key={{chave}}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28

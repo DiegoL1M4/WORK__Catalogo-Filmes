@@ -35,14 +35,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  pagination(item: any) {
-    if (item === '+' && this.page < this.totalPages) {
-      this.page += 1;
-    } else if (item === '-' && this.page !== 1) {
-      this.page -= 1;
-    } else if (item !== '+' && item !== '-') {
-      this.page = item;
-    }
+  pagination(page: any) {
+    this.page = page;
     this.router$.navigate(['/home/'  + this.page]);
   }
 

@@ -17,8 +17,15 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {
   }
 
-  pageChange(op: string) {
-    this.evento.emit(op);
+  pageChange(op: any) {
+    if (op === '+' && this.page < this.totalPages) {
+      this.page += 1;
+    } else if (op === '-' && this.page !== 1) {
+      this.page -= 1;
+    } else if (op !== '+' && op !== '-') {
+      this.page = op;
+    }
+    this.evento.emit(this.page);
   }
 
 }

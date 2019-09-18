@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MoviedbService } from 'src/app/services/moviedb.service';
-import { AccessibilityService } from './../../services/accessibility.service';
-import { Genres } from './../../interfaces/genres';
+import { AccessibilityService } from '../../services/accessibility.service';
+import { Genres } from '../../interfaces/genres';
 
 @Component({
   selector: 'app-navbar',

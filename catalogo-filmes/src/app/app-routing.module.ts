@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'home/:page', component: HomeComponent },
   { path: 'categories/:id/:page', component: CategoriesComponent },
   { path: 'search/:query/:page', component: SearchComponent },
+  { path: 'search/:page', pathMatch: 'full', redirectTo: 'home/1'},
   { path: 'details/:id', component: DetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

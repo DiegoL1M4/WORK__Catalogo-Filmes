@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { debounceTime, timeout } from 'rxjs/operators';
 
 import { MoviedbService } from './../../services/moviedb.service';
 import { Pesquisa } from './../../interfaces/pesquisa';
@@ -24,7 +25,9 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route$.url.subscribe(url => {
+    this.route$.url.pipe(
+      debounceTime(300)
+    ).subscribe(url => {
       this.route$.paramMap
         .subscribe((params: ParamMap) => {this.query = params.get('query'); });
 

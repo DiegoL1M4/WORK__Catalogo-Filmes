@@ -55,7 +55,7 @@
           <!-- Pesquisa -->
           <li class="nav-item dropdown">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Pesquisar" #campoInput>
+              <input class="form-control" (keyup)="pesquisar(campoInput.value)" type="text" placeholder="Pesquisar" #campoInput>
 
               <div class="input-group-append">
                 <button (click)="pesquisar(campoInput.value)" type="button" class="btn btn-info">
